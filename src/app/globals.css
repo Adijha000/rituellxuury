@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #f4ede2;
+  --stone: #e7ded0;
+  --forest: #16332b;
+  --forest-deep: #0e2620;
+  --gold: #a98b4a;
+  --olive: #6b6a45;
+  --walnut: #5a4632;
+  --linen: #efe7da;
+  --ink: #1d1d1b;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-stone: var(--stone);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-gold: var(--gold);
+  --color-olive: var(--olive);
+  --color-walnut: var(--walnut);
+  --color-linen: var(--linen);
+  --color-ink: var(--ink);
+  --font-serif: var(--font-editorial);
+  --font-sans: var(--font-grotesk);
+}
+
+html {
+  background: var(--ivory);
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-sans), Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--forest);
+  color: var(--ivory);
+}
+
+.font-serif {
+  font-family: var(--font-editorial), Georgia, serif;
+}
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle, rgba(169, 139, 74, 0.10) 0%, rgba(169, 139, 74, 0) 70%);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+@keyframes drop-fall {
+  0% { transform: translateY(-10px) scaleY(0.8); opacity: 0; }
+  35% { opacity: 1; }
+  75% { transform: translateY(60px) scaleY(1.15); opacity: 1; }
+  100% { transform: translateY(72px) scaleY(0.4); opacity: 0; }
+}
+
+.oil-drop {
+  animation: drop-fall 2.6s cubic-bezier(0.55, 0, 1, 0.45) infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--linen) inset;
+  -webkit-text-fill-color: var(--ink);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Ambient scene — a CSS/SVG cinemagraph loop standing in for real video footage. */
+.ambient-scene {
+  isolation: isolate;
+}
+
+@keyframes ambient-sweep-move {
+  0%, 100% { transform: translate(-4%, -3%) scale(1); }
+  50% { transform: translate(4%, 3%) scale(1.08); }
+}
+.ambient-sweep {
+  animation: ambient-sweep-move 14s ease-in-out infinite;
+}
+
+@keyframes ambient-linen-breathe {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 0.9; }
+}
+.ambient-linen {
+  animation: ambient-linen-breathe 8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes ambient-drop-fall-loop {
+  0% { transform: translateY(0) scaleY(0.8); opacity: 0; }
+  8% { opacity: 1; }
+  38% { transform: translateY(130px) scaleY(1.3); opacity: 1; }
+  46% { transform: translateY(150px) scaleY(0.3); opacity: 0; }
+  100% { transform: translateY(150px) scaleY(0.3); opacity: 0; }
+}
+.ambient-drop-fall {
+  animation: ambient-drop-fall-loop 3.5s cubic-bezier(0.6, 0, 1, 0.4) infinite;
+}
+
+@keyframes ambient-ripple-grow {
+  0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+  40% { opacity: 0.7; }
+  46% { transform: translate(-50%, -50%) scale(0.4); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0; }
+}
+.ambient-ripple {
+  left: 50%;
+  top: 50%;
+  animation: ambient-ripple-grow 3.5s ease-out infinite;
+}
+
+@keyframes ambient-sway-move {
+  0%, 100% { transform: rotate(-4deg) translateY(0); }
+  50% { transform: rotate(4deg) translateY(-6px); }
+}
+.ambient-sway {
+  animation: ambient-sway-move 6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
