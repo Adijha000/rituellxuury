@@ -118,7 +118,7 @@ export const WaitlistForm = forwardRef<HTMLElement, { source?: string }>(functio
                       className="w-full border-b border-ivory/25 bg-transparent py-3 text-ivory focus:border-gold focus:outline-none [&>option]:text-ink"
                     >
                       <option value="" disabled>
-                        Hair Goal
+                        Hair Concern
                       </option>
                       {hairGoals.map((g) => (
                         <option key={g} value={g}>

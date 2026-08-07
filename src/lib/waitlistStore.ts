@@ -34,6 +34,31 @@ function hasSupabase() {
   return Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
 }
 
+function hasGoogleSheets() {
+  return Boolean(process.env.GOOGLE_SHEETS_WEBAPP_URL);
+}
+
+async function saveToGoogleSheets(entry: Entry) {
+  const url = process.env.GOOGLE_SHEETS_WEBAPP_URL as string;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      firstName: entry.firstName,
+      email: entry.email,
+      phone: entry.phone,
+      hairGoal: entry.hairGoal,
+      source: entry.source ?? "",
+      createdAt: entry.createdAt,
+      secret: process.env.GOOGLE_SHEETS_SECRET ?? "",
+    }),
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`Google Sheets webhook failed: ${res.status} ${body}`);
+  }
+}
+
 async function saveToSupabase(entry: Entry) {
   const url = `${process.env.SUPABASE_URL}/rest/v1/waitlist`;
   const res = await fetch(url, {
@@ -63,9 +88,15 @@ async function saveToSupabase(entry: Entry) {
 export async function addToWaitlist(input: WaitlistInput) {
   const entry: Entry = { ...input, createdAt: new Date().toISOString() };
 
+  // Google Sheets is the primary lead destination (feeds rituelluxury@gmail.com's sheet).
+  if (hasGoogleSheets()) {
+    await saveToGoogleSheets(entry);
+  }
+
   if (hasSupabase()) {
     await saveToSupabase(entry);
   } else {
+    // Local mirror also powers the founding-member counter when Supabase isn't configured.
     const all = await readAll();
     all.push(entry);
     await fs.writeFile(DATA_FILE, JSON.stringify(all, null, 2), "utf-8");

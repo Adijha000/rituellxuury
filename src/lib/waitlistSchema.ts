@@ -1,11 +1,11 @@
 import { z } from "zod";
 
 export const hairGoals = [
-  "Longer Hair",
   "Hair Fall",
-  "Healthy Hair",
+  "Dry Hair",
+  "Frizzy Hair",
   "Scalp Care",
-  "Self Care",
+  "General Wellness",
 ] as const;
 
 export const waitlistSchema = z.object({

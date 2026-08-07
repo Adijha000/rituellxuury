@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { LogoMark } from "@/components/Logo";
+import { BrandPlate } from "@/components/Logo";
 
 export function LoadingScreen({ onDone }: { onDone: () => void }) {
   const [visible, setVisible] = useState(true);
@@ -30,7 +30,7 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="mt-8"
           >
-            <LogoMark className="h-10 w-10 text-gold" />
+            <BrandPlate variant="mark" />
           </motion.div>
           <motion.p
             initial={{ opacity: 0 }}

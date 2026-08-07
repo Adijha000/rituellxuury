@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { LogoMark } from "@/components/Logo";
+import { BrandMark } from "@/components/Logo";
 
 export function Navbar({ onJoinClick }: { onJoinClick: () => void }) {
   const [scrolled, setScrolled] = useState(false);
@@ -20,8 +20,10 @@ export function Navbar({ onJoinClick }: { onJoinClick: () => void }) {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-ivory/10 bg-forest-deep/85 px-6 py-4 backdrop-blur-md sm:px-10"
     >
-      <div className="flex items-center gap-2">
-        <LogoMark className="h-6 w-6 text-gold" />
+      <div className="flex items-center gap-2.5">
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-ivory p-1.5">
+          <BrandMark className="h-full w-full" />
+        </span>
         <span className="text-xs tracking-[0.35em] text-ivory">RITUEL</span>
       </div>
       <button

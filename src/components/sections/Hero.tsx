@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { LogoMark } from "@/components/Logo";
+import { BrandPlate } from "@/components/Logo";
 import { WordReveal } from "@/components/ui/RevealText";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { AmbientScene } from "@/components/AmbientScene";
@@ -39,8 +39,7 @@ export function Hero({ onJoinClick }: { onJoinClick: () => void }) {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 flex flex-col items-center gap-4"
         >
-          <LogoMark className="h-12 w-12 text-gold" />
-          <span className="text-xs tracking-[0.5em] text-ivory/70">RITUEL</span>
+          <BrandPlate variant="lockup" />
         </motion.div>
 
         <h1 className="max-w-4xl font-serif text-[13vw] leading-[0.98] font-light tracking-tight sm:text-[7vw] md:text-[6.2vw]">

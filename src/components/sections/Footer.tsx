@@ -1,10 +1,10 @@
-import { LogoMark } from "@/components/Logo";
+import { BrandPlate } from "@/components/Logo";
 
 export function Footer() {
   return (
     <footer className="bg-forest-deep px-6 py-16 text-ivory/70 sm:px-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 text-center">
-        <LogoMark className="h-8 w-8 text-gold" />
+        <BrandPlate variant="mark" />
         <p className="max-w-sm text-xs tracking-[0.2em] text-ivory/50">
           RITUALS FROM NATURE, RESULTS YOU FEEL.
         </p>
