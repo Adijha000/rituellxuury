@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Navbar } from "@/components/Navbar";
 import { StickyJoinButton } from "@/components/StickyJoinButton";
-import { WaitlistPopup } from "@/components/WaitlistPopup";
 import { Hero } from "@/components/sections/Hero";
 import { StoryScroll } from "@/components/sections/StoryScroll";
 import { Philosophy } from "@/components/sections/Philosophy";
@@ -47,7 +46,6 @@ export default function Home() {
             <Footer />
           </main>
           <StickyJoinButton onJoinClick={scrollToForm} />
-          <WaitlistPopup onJoinClick={scrollToForm} />
         </>
       )}
     </>

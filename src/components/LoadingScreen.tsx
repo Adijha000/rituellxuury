@@ -8,7 +8,7 @@ export function LoadingScreen({ onDone }: { onDone: () => void }) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setVisible(false), 2200);
+    const t = setTimeout(() => setVisible(false), 1400);
     return () => clearTimeout(t);
   }, []);
 

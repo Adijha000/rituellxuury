@@ -1,4 +1,3 @@
-import { LogoMark } from "@/components/Logo";
 
 const VARIANTS = {
   shikakai: { top: "#4a4530", bottom: "#8a7a4a", label: "SHIKAKAI POWDER", tag: "Deep Cleanse", accent: "#16332b" },
@@ -80,10 +79,9 @@ export function ProductPouch({
         {/* brand accent band */}
         <rect x="130" y="30" width="40" height="16" rx="3" fill={v.accent} opacity="0.9" />
 
-        {/* logo mark */}
-        <g transform="translate(126, 100) scale(0.5)" color={v.accent}>
-          <LogoMark className="h-24 w-24" />
-        </g>
+        {/* brand mark (real logo artwork) */}
+        <image href="/rituel-logo-mark.png" x="126" y="90" width="48" height="48" opacity="0.9" />
+
 
         {/* wordmark */}
         <text

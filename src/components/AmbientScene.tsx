@@ -1,6 +1,6 @@
 "use client";
 
-import { LogoMark } from "@/components/Logo";
+import { BrandMark } from "@/components/Logo";
 
 /**
  * A looping, cinemagraph-style ambient scene built entirely from CSS/SVG —
@@ -63,9 +63,9 @@ export function AmbientScene({
         <span className="ambient-ripple absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border [animation-delay:1.2s]" style={{ borderColor: p.glow }} />
       </div>
 
-      {/* swaying leaf motif (logo mark) */}
-      <div className="ambient-sway absolute bottom-[8%] right-[10%] opacity-70">
-        <LogoMark className="h-16 w-16" style={{ color: p.glow }} />
+      {/* swaying brand mark */}
+      <div className="ambient-sway absolute bottom-[8%] right-[10%] opacity-80">
+        <BrandMark className="h-14 w-14" />
       </div>
 
       {/* soft grain / vignette */}

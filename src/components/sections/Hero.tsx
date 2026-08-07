@@ -11,7 +11,7 @@ export function Hero({ onJoinClick }: { onJoinClick: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
 
