@@ -97,9 +97,15 @@ export async function addToWaitlist(input: WaitlistInput) {
     await saveToSupabase(entry);
   } else {
     // Local mirror also powers the founding-member counter when Supabase isn't configured.
-    const all = await readAll();
-    all.push(entry);
-    await fs.writeFile(DATA_FILE, JSON.stringify(all, null, 2), "utf-8");
+    // Serverless hosts (Vercel) have a read-only filesystem outside /tmp, so this is
+    // best-effort in production: a real lead destination (Sheets/Supabase) is what persists.
+    try {
+      const all = await readAll();
+      all.push(entry);
+      await fs.writeFile(DATA_FILE, JSON.stringify(all, null, 2), "utf-8");
+    } catch (err) {
+      console.warn("Local waitlist mirror unavailable (read-only filesystem?)", err);
+    }
   }
 
   return entry;
@@ -124,6 +130,10 @@ export async function getFoundingMemberCount(): Promise<{ count: number; cap: nu
       return { count: BASE_COUNT, cap: CAP };
     }
   }
-  const all = await readAll();
-  return { count: Math.min(BASE_COUNT + all.length, CAP), cap: CAP };
+  try {
+    const all = await readAll();
+    return { count: Math.min(BASE_COUNT + all.length, CAP), cap: CAP };
+  } catch {
+    return { count: BASE_COUNT, cap: CAP };
+  }
 }
