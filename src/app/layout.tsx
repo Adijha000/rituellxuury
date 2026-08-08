@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 const editorial = Cormorant_Garamond({
   variable: "--font-editorial",
@@ -36,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${editorial.variable} ${grotesk.variable} h-full`}>
       <body className="min-h-full bg-ivory text-ink antialiased grain">
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );
