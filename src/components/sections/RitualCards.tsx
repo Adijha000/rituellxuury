@@ -23,7 +23,7 @@ const rituals = [
   {
     name: "Weekend",
     tag: "Reset",
-    desc: "A longer ritual. Deep cleanse, mask, and stillness — a full return to yourself.",
+    desc: "A longer ritual. Deep cleanse, serum, and stillness — a full return to yourself.",
     scene: "weekend" as const,
     dark: true,
   },

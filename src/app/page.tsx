@@ -7,8 +7,7 @@ import { StickyJoinButton } from "@/components/StickyJoinButton";
 import { Hero } from "@/components/sections/Hero";
 import { StoryScroll } from "@/components/sections/StoryScroll";
 import { Philosophy } from "@/components/sections/Philosophy";
-import { Ingredients } from "@/components/sections/Ingredients";
-import { ProductReveal } from "@/components/sections/ProductReveal";
+import { ProductCollection } from "@/components/sections/ProductCollection";
 import { RitualCards } from "@/components/sections/RitualCards";
 import { WhyJoinEarly } from "@/components/sections/WhyJoinEarly";
 import { SocialProof } from "@/components/sections/SocialProof";
@@ -35,8 +34,7 @@ export default function Home() {
             <Hero onJoinClick={scrollToForm} />
             <StoryScroll />
             <Philosophy />
-            <Ingredients />
-            <ProductReveal />
+            <ProductCollection />
             <RitualCards />
             <WhyJoinEarly onJoinClick={scrollToForm} />
             <SocialProof />

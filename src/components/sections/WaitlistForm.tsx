@@ -51,7 +51,7 @@ export const WaitlistForm = forwardRef<HTMLElement, { source?: string }>(functio
       <div className="relative hidden min-h-[420px] overflow-hidden md:block">
         <AmbientScene variant="hero" className="absolute inset-0 h-full w-full" />
         <div className="relative flex h-full flex-col items-center justify-center gap-10 p-12">
-          <ProductPouch variant="shikakai" className="h-56 w-40 drop-shadow-2xl" />
+          <ProductPouch variant="serum" className="h-56 w-40 drop-shadow-2xl" />
           <p className="max-w-xs text-center font-serif text-2xl font-light italic leading-snug text-ivory/85">
             &ldquo;Before it is introduced to the world, it is introduced to you.&rdquo;
           </p>
@@ -157,7 +157,7 @@ export const WaitlistForm = forwardRef<HTMLElement, { source?: string }>(functio
                     animate={{ y: 0, opacity: 1, scale: 1 }}
                     transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <ProductPouch variant="shikakai" className="h-32 w-24 drop-shadow-2xl" />
+                    <ProductPouch variant="serum" className="h-32 w-24 drop-shadow-2xl" />
                   </motion.div>
                   <motion.h3
                     initial={{ opacity: 0, y: 12 }}
