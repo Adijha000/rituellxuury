@@ -16,6 +16,7 @@ const grotesk = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rituel-luxury.vercel.app"),
   title: "Rituel — Rituals are becoming rare.",
   description:
     "Modern Ayurvedic hair rituals for a healthy scalp and naturally beautiful hair. Join the Founding Waitlist — only 500 places.",

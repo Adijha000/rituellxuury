@@ -21,9 +21,7 @@ export function Navbar({ onJoinClick }: { onJoinClick: () => void }) {
       className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-ivory/10 bg-forest-deep/85 px-6 py-4 backdrop-blur-md sm:px-10"
     >
       <div className="flex items-center gap-2.5">
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-ivory p-1.5">
-          <BrandMark className="h-full w-full" />
-        </span>
+        <BrandMark className="h-8 w-8" />
         <span className="text-xs tracking-[0.35em] text-ivory">RITUEL</span>
       </div>
       <button
