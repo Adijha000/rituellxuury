@@ -165,12 +165,12 @@ export const WaitlistForm = forwardRef<HTMLElement, { source?: string }>(functio
                     animate={{ y: 0, opacity: 1, scale: 1 }}
                     transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <div className="relative h-32 w-32 drop-shadow-2xl">
+                    <div className="relative h-56 w-56 drop-shadow-2xl sm:h-64 sm:w-64">
                       <Image
                         src="/rituel-product-shot.webp"
                         alt="Rituel Luxury Hair Cleanser and Hair Oil"
                         fill
-                        sizes="128px"
+                        sizes="256px"
                         className="object-contain"
                       />
                     </div>
